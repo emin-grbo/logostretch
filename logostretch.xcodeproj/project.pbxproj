@@ -7,19 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D70F81312673DAA300EAB39A /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70F81302673DAA300EAB39A /* KeyboardAdaptive.swift */; };
 		D74821CA2663E8C0008710DC /* logostretchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74821C92663E8C0008710DC /* logostretchApp.swift */; };
 		D74821CC2663E8C0008710DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74821CB2663E8C0008710DC /* ContentView.swift */; };
 		D74821CE2663E8C1008710DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74821CD2663E8C1008710DC /* Assets.xcassets */; };
 		D74821D12663E8C1008710DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74821D02663E8C1008710DC /* Preview Assets.xcassets */; };
+		D74821D926640C8D008710DC /* Color+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74821D826640C8D008710DC /* Color+ex.swift */; };
+		D774529B2664B6B9002FA097 /* xRoundedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D774529A2664B6B9002FA097 /* xRoundedRect.swift */; };
+		D774529D2664B6D5002FA097 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D774529C2664B6D5002FA097 /* Modifiers.swift */; };
+		D7D0341A268A40830042CD42 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D03419268A40830042CD42 /* AdView.swift */; };
+		D7EF59A0266CC29400288BA4 /* xRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF599F266CC29400288BA4 /* xRoundedButton.swift */; };
+		D7EF59A2266CDDB900288BA4 /* Fonts+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF59A1266CDDB900288BA4 /* Fonts+ex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D70F81302673DAA300EAB39A /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
 		D74821C62663E8C0008710DC /* logostretch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = logostretch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74821C92663E8C0008710DC /* logostretchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logostretchApp.swift; sourceTree = "<group>"; };
 		D74821CB2663E8C0008710DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D74821CD2663E8C1008710DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D74821D02663E8C1008710DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D74821D22663E8C1008710DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D74821D826640C8D008710DC /* Color+ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+ex.swift"; sourceTree = "<group>"; };
+		D774529A2664B6B9002FA097 /* xRoundedRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xRoundedRect.swift; sourceTree = "<group>"; };
+		D774529C2664B6D5002FA097 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		D7D03419268A40830042CD42 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
+		D7EF599F266CC29400288BA4 /* xRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xRoundedButton.swift; sourceTree = "<group>"; };
+		D7EF59A1266CDDB900288BA4 /* Fonts+ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+ex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,11 +47,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D70F810B2673470300EAB39A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D74821BD2663E8C0008710DC = {
 			isa = PBXGroup;
 			children = (
 				D74821C82663E8C0008710DC /* logostretch */,
 				D74821C72663E8C0008710DC /* Products */,
+				D70F810B2673470300EAB39A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +76,13 @@
 			children = (
 				D74821C92663E8C0008710DC /* logostretchApp.swift */,
 				D74821CB2663E8C0008710DC /* ContentView.swift */,
+				D7D03419268A40830042CD42 /* AdView.swift */,
+				D70F81302673DAA300EAB39A /* KeyboardAdaptive.swift */,
+				D74821D826640C8D008710DC /* Color+ex.swift */,
+				D774529A2664B6B9002FA097 /* xRoundedRect.swift */,
+				D7EF599F266CC29400288BA4 /* xRoundedButton.swift */,
+				D774529C2664B6D5002FA097 /* Modifiers.swift */,
+				D7EF59A1266CDDB900288BA4 /* Fonts+ex.swift */,
 				D74821CD2663E8C1008710DC /* Assets.xcassets */,
 				D74821D22663E8C1008710DC /* Info.plist */,
 				D74821CF2663E8C1008710DC /* Preview Content */,
@@ -85,6 +114,8 @@
 			dependencies = (
 			);
 			name = logostretch;
+			packageProductDependencies = (
+			);
 			productName = logostretch;
 			productReference = D74821C62663E8C0008710DC /* logostretch.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +143,8 @@
 				Base,
 			);
 			mainGroup = D74821BD2663E8C0008710DC;
+			packageReferences = (
+			);
 			productRefGroup = D74821C72663E8C0008710DC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,8 +171,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D70F81312673DAA300EAB39A /* KeyboardAdaptive.swift in Sources */,
+				D774529B2664B6B9002FA097 /* xRoundedRect.swift in Sources */,
 				D74821CC2663E8C0008710DC /* ContentView.swift in Sources */,
+				D7D0341A268A40830042CD42 /* AdView.swift in Sources */,
+				D7EF59A0266CC29400288BA4 /* xRoundedButton.swift in Sources */,
 				D74821CA2663E8C0008710DC /* logostretchApp.swift in Sources */,
+				D74821D926640C8D008710DC /* Color+ex.swift in Sources */,
+				D7EF59A2266CDDB900288BA4 /* Fonts+ex.swift in Sources */,
+				D774529D2664B6D5002FA097 /* Modifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +237,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -252,7 +292,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -271,11 +311,20 @@
 				DEVELOPMENT_ASSET_PATHS = "\"logostretch/Preview Content\"";
 				DEVELOPMENT_TEAM = ZQCK5WLKEQ;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/logostretch/Preview\\ Content",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = logostretch/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-fobjc-arc",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = undeadpixel.logostretch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -293,11 +342,20 @@
 				DEVELOPMENT_ASSET_PATHS = "\"logostretch/Preview Content\"";
 				DEVELOPMENT_TEAM = ZQCK5WLKEQ;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/logostretch/Preview\\ Content",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = logostretch/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-fobjc-arc",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = undeadpixel.logostretch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
