@@ -180,9 +180,9 @@
 			isa = PBXGroup;
 			children = (
 				D74821C92663E8C0008710DC /* logostretchApp.swift */,
-				D77D715F2691C1F5008BA8AD /* Model */,
 				D74821CB2663E8C0008710DC /* ContentView.swift */,
 				D7D03419268A40830042CD42 /* AdView.swift */,
+				D77D715F2691C1F5008BA8AD /* Model */,
 				D77D71622691E49E008BA8AD /* Custom */,
 				D74821CD2663E8C1008710DC /* Assets.xcassets */,
 				D74821D22663E8C1008710DC /* Info.plist */,

@@ -14,6 +14,8 @@ class Stretch: ObservableObject {
 @available(iOS 15.0, *)
 struct ContentView: View {
     
+    
+    
     @StateObject var vm = QuestionsViewModel()
 
     @State var didCompleteReward = false
@@ -78,6 +80,7 @@ struct ContentView: View {
                         // MARK: Skip, button 􀌱
                         Button {
                             print("hint")
+                            vm.current += 1
                         } label: {
                             HStack {
                                 Image(systemName: "t.bubble.fill")
@@ -182,6 +185,12 @@ struct ContentView: View {
                         .opacity(isStretched ? 0 : 1)
                         //-------------------------------------------------
                     }
+                    
+                    Text("\(vm.level) \(vm.current)")
+                        .font(.title)
+                        .foregroundColor(Color.white)
+                        .fontWeight(.black)
+                    
                 }
                 .opacity(visibility)
                 .animation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0.5))

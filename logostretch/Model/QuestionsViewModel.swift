@@ -8,6 +8,10 @@
 import SwiftUI
 
 class QuestionsViewModel: ObservableObject {
+    
+    @AppStorage("level") var level = 0
+    @AppStorage("current") var current = 0
+    
     @Published var questions = [Logo]()
     
     var currentQuestion: Logo?
