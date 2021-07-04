@@ -19,6 +19,9 @@
 		D774529D2664B6D5002FA097 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D774529C2664B6D5002FA097 /* Modifiers.swift */; };
 		D77D715E2691BE06008BA8AD /* QuestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D715D2691BE06008BA8AD /* QuestionsViewModel.swift */; };
 		D77D71612691C20D008BA8AD /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D71602691C20D008BA8AD /* Logo.swift */; };
+		D77D716426924BCA008BA8AD /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D716326924BCA008BA8AD /* ProgressView.swift */; };
+		D77D716726925357008BA8AD /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D716626925357008BA8AD /* LogoView.swift */; };
+		D77D716926925871008BA8AD /* TextFieldGuesser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D716826925871008BA8AD /* TextFieldGuesser.swift */; };
 		D7D0341A268A40830042CD42 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D03419268A40830042CD42 /* AdView.swift */; };
 		D7D0341C268A4F320042CD42 /* AppLovinSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D0341B268A4F320042CD42 /* AppLovinSDK.xcframework */; };
 		D7D0341E268A4F580042CD42 /* AppLovinSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D7D0341D268A4F580042CD42 /* AppLovinSDKResources.bundle */; };
@@ -71,6 +74,9 @@
 		D774529C2664B6D5002FA097 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		D77D715D2691BE06008BA8AD /* QuestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewModel.swift; sourceTree = "<group>"; };
 		D77D71602691C20D008BA8AD /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
+		D77D716326924BCA008BA8AD /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		D77D716626925357008BA8AD /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		D77D716826925871008BA8AD /* TextFieldGuesser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldGuesser.swift; sourceTree = "<group>"; };
 		D7D03419268A40830042CD42 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
 		D7D0341B268A4F320042CD42 /* AppLovinSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AppLovinSDK.xcframework; sourceTree = "<group>"; };
 		D7D0341D268A4F580042CD42 /* AppLovinSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AppLovinSDKResources.bundle; sourceTree = "<group>"; };
@@ -182,6 +188,7 @@
 				D74821C92663E8C0008710DC /* logostretchApp.swift */,
 				D74821CB2663E8C0008710DC /* ContentView.swift */,
 				D7D03419268A40830042CD42 /* AdView.swift */,
+				D77D716526924C17008BA8AD /* Views */,
 				D77D715F2691C1F5008BA8AD /* Model */,
 				D77D71622691E49E008BA8AD /* Custom */,
 				D74821CD2663E8C1008710DC /* Assets.xcassets */,
@@ -219,6 +226,16 @@
 				D7EF59A1266CDDB900288BA4 /* Fonts+ex.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		D77D716526924C17008BA8AD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D77D716326924BCA008BA8AD /* ProgressView.swift */,
+				D77D716626925357008BA8AD /* LogoView.swift */,
+				D77D716826925871008BA8AD /* TextFieldGuesser.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,12 +357,15 @@
 				D774529B2664B6B9002FA097 /* xRoundedRect.swift in Sources */,
 				D74821CC2663E8C0008710DC /* ContentView.swift in Sources */,
 				D7D0341A268A40830042CD42 /* AdView.swift in Sources */,
+				D77D716926925871008BA8AD /* TextFieldGuesser.swift in Sources */,
 				D77D71612691C20D008BA8AD /* Logo.swift in Sources */,
+				D77D716426924BCA008BA8AD /* ProgressView.swift in Sources */,
 				D7EF59A0266CC29400288BA4 /* xRoundedButton.swift in Sources */,
 				D74821CA2663E8C0008710DC /* logostretchApp.swift in Sources */,
 				D77D715E2691BE06008BA8AD /* QuestionsViewModel.swift in Sources */,
 				D74821D926640C8D008710DC /* Color+ex.swift in Sources */,
 				D7EF59A2266CDDB900288BA4 /* Fonts+ex.swift in Sources */,
+				D77D716726925357008BA8AD /* LogoView.swift in Sources */,
 				D774529D2664B6D5002FA097 /* Modifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,11 +512,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = logostretch/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-fobjc-arc",
@@ -504,7 +525,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = undeadpixel.logostretch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -523,11 +544,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = logostretch/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-fobjc-arc",
@@ -535,7 +557,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = undeadpixel.logostretch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
