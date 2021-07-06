@@ -9,27 +9,21 @@ import SwiftUI
 
 class QuestionsViewModel: ObservableObject {
     
+    func setupData(_ dataController: DataController) {
+        self.dataController = dataController
+    }
+    
     @AppStorage("level") var level = 1
     @AppStorage("current") var current = 0
     
-    @EnvironmentObject var dataController: DataController
-    @Published var questions = [Int: [Logo]]()
+    var dataController: DataController?
+    @Published var questions = [Logo]()
     
     var currentQuestion: Logo?
     
     func fetchQuestions() {
         questions =
-        [
-            1 :
-                [
-                    Logo(imgString: "mcdonalds", names: ["mcdonalds", "mc", "aa"]),
-                    Logo(imgString: "breitling", names: ["breitling", "aa"])
-                ],
-            2 :
-                [
-                    Logo(imgString: "logitech", names: ["logitech", "aa"])
-                ]
-        ]
+        pokupiti ovo iz data controllera
     }
     
     func getCurrentQuestion() {

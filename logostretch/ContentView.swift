@@ -117,6 +117,7 @@ struct ContentView: View {
             }
             .edgesIgnoringSafeArea(.all)
             .onAppear {
+                vm.setupData(dataController)
                 vm.fetchQuestions()
                 vm.getCurrentQuestion()
 //                vm.resetUserInfo()

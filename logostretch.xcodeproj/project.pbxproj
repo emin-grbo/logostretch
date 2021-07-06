@@ -18,8 +18,10 @@
 		D774529B2664B6B9002FA097 /* xRoundedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D774529A2664B6B9002FA097 /* xRoundedRect.swift */; };
 		D774529D2664B6D5002FA097 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D774529C2664B6D5002FA097 /* Modifiers.swift */; };
 		D77B932626946559001D2945 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77B932526946559001D2945 /* DataController.swift */; };
+		D77B93292694E3B7001D2945 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = D77B93282694E3B7001D2945 /* ComposableArchitecture */; };
+		D77B932C2694F8B7001D2945 /* logostretch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D77B932A2694F8B7001D2945 /* logostretch.xcdatamodeld */; };
+		D77B932E26950A42001D2945 /* LogoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77B932D26950A42001D2945 /* LogoData.swift */; };
 		D77D715E2691BE06008BA8AD /* QuestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D715D2691BE06008BA8AD /* QuestionsViewModel.swift */; };
-		D77D71612691C20D008BA8AD /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D71602691C20D008BA8AD /* Logo.swift */; };
 		D77D716426924BCA008BA8AD /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D716326924BCA008BA8AD /* ProgressView.swift */; };
 		D77D716726925357008BA8AD /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D716626925357008BA8AD /* LogoView.swift */; };
 		D77D716926925871008BA8AD /* TextFieldGuesser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D716826925871008BA8AD /* TextFieldGuesser.swift */; };
@@ -74,8 +76,9 @@
 		D774529A2664B6B9002FA097 /* xRoundedRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xRoundedRect.swift; sourceTree = "<group>"; };
 		D774529C2664B6D5002FA097 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		D77B932526946559001D2945 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		D77B932B2694F8B7001D2945 /* logostretch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = logostretch.xcdatamodel; sourceTree = "<group>"; };
+		D77B932D26950A42001D2945 /* LogoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoData.swift; sourceTree = "<group>"; };
 		D77D715D2691BE06008BA8AD /* QuestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewModel.swift; sourceTree = "<group>"; };
-		D77D71602691C20D008BA8AD /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
 		D77D716326924BCA008BA8AD /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		D77D716626925357008BA8AD /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		D77D716826925871008BA8AD /* TextFieldGuesser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldGuesser.swift; sourceTree = "<group>"; };
@@ -114,6 +117,7 @@
 				D7D0343A268A4FF60042CD42 /* SystemConfiguration.framework in Frameworks */,
 				D7D03438268A4FF00042CD42 /* StoreKit.framework in Frameworks */,
 				D7D03436268A4FEA0042CD42 /* SafariServices.framework in Frameworks */,
+				D77B93292694E3B7001D2945 /* ComposableArchitecture in Frameworks */,
 				D7D03434268A4FE40042CD42 /* libz.tbd in Frameworks */,
 				D7D03432268A4FDD0042CD42 /* MessageUI.framework in Frameworks */,
 				D7D03430268A4FD70042CD42 /* Foundation.framework in Frameworks */,
@@ -213,7 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				D77D715D2691BE06008BA8AD /* QuestionsViewModel.swift */,
-				D77D71602691C20D008BA8AD /* Logo.swift */,
+				D77B932D26950A42001D2945 /* LogoData.swift */,
+				D77B932A2694F8B7001D2945 /* logostretch.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -261,6 +266,7 @@
 			);
 			name = logostretch;
 			packageProductDependencies = (
+				D77B93282694E3B7001D2945 /* ComposableArchitecture */,
 			);
 			productName = logostretch;
 			productReference = D74821C62663E8C0008710DC /* logostretch.app */;
@@ -290,6 +296,7 @@
 			);
 			mainGroup = D74821BD2663E8C0008710DC;
 			packageReferences = (
+				D77B93272694E3B7001D2945 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = D74821C72663E8C0008710DC /* Products */;
 			projectDirPath = "";
@@ -360,8 +367,8 @@
 				D774529B2664B6B9002FA097 /* xRoundedRect.swift in Sources */,
 				D74821CC2663E8C0008710DC /* ContentView.swift in Sources */,
 				D7D0341A268A40830042CD42 /* AdView.swift in Sources */,
+				D77B932E26950A42001D2945 /* LogoData.swift in Sources */,
 				D77D716926925871008BA8AD /* TextFieldGuesser.swift in Sources */,
-				D77D71612691C20D008BA8AD /* Logo.swift in Sources */,
 				D77D716426924BCA008BA8AD /* ProgressView.swift in Sources */,
 				D7EF59A0266CC29400288BA4 /* xRoundedButton.swift in Sources */,
 				D74821CA2663E8C0008710DC /* logostretchApp.swift in Sources */,
@@ -370,6 +377,7 @@
 				D74821D926640C8D008710DC /* Color+ex.swift in Sources */,
 				D7EF59A2266CDDB900288BA4 /* Fonts+ex.swift in Sources */,
 				D77D716726925357008BA8AD /* LogoView.swift in Sources */,
+				D77B932C2694F8B7001D2945 /* logostretch.xcdatamodeld in Sources */,
 				D774529D2664B6D5002FA097 /* Modifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,6 +595,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D77B93272694E3B7001D2945 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D77B93282694E3B7001D2945 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D77B93272694E3B7001D2945 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		D77B932A2694F8B7001D2945 /* logostretch.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D77B932B2694F8B7001D2945 /* logostretch.xcdatamodel */,
+			);
+			currentVersion = D77B932B2694F8B7001D2945 /* logostretch.xcdatamodel */;
+			path = logostretch.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D74821BE2663E8C0008710DC /* Project object */;
 }

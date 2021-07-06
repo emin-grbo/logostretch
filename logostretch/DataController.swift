@@ -34,23 +34,25 @@ class DataController: ObservableObject {
     func createSampleData() throws {
         let viewContext = container.viewContext
         
-//        for i in 1...5 {
-//            let project = Project(context: viewContext)
-//            project.title = "Project \(i)"
-//            project.items = []
-//            project.creationDate = Date()
-//            project.closed = Bool.random()
-//            
-//            for j in 1...5 {
-//                let item = Item(context: viewContext)
-//                item.title = "Item \(j)"
-//                item.creationDate = Date()
-//                item.completed = Bool.random()
-//                item.priority = Int16.random(in: 1...3)
-//                item.project = project
-//            }
-//        }
+        let mockData =
+        [
+            LogoData(imgString: "mcdonalds", names: "mcdonalds, mc, aa", level: 1),
+            LogoData(imgString: "breitling", names: "breitling, aa", level: 1),
+            LogoData(imgString: "logitech", names: "logitech, aa", level: 2)
+        ]
+
+        nastaviti ovde tj konvertovati datu za odredjeni nivo, mozda i sve
+        
         try viewContext.save()
+    }
+    
+    func addLogo(data: LogoData) {
+        let logo = Logo(context: container.viewContext)
+        logo.id = data.id
+        logo.imgString = data.imgString
+        logo.isSolved = data.isSolved
+        logo.level = Int16(data.level)
+        save()
     }
     
     func save() {
