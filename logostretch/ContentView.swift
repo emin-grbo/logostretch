@@ -14,6 +14,7 @@ class Stretch: ObservableObject {
 @available(iOS 15.0, *)
 struct ContentView: View {
     
+    @EnvironmentObject var dataController: DataController
     @StateObject var vm = QuestionsViewModel()
 
     @State var didCompleteReward = false
@@ -117,7 +118,8 @@ struct ContentView: View {
             .edgesIgnoringSafeArea(.all)
             .onAppear {
                 vm.fetchQuestions()
-                vm.getNextQuestion()
+                vm.getCurrentQuestion()
+//                vm.resetUserInfo()
             }
         }
     }
@@ -128,7 +130,8 @@ struct ContentView: View {
         logoGuess = ""
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            vm.getNextQuestion()
+            vm.nextQuestion()
+            vm.getCurrentQuestion()
             visibility = 1
             focusedField = .field
         }

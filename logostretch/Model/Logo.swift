@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct Logo: Identifiable {
+struct Logo: Identifiable, Equatable {
     let id = UUID()
     let imgString: String
     let names : [String]
+    var isSolved : Bool = false
 }

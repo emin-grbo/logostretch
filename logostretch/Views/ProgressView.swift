@@ -10,7 +10,7 @@ struct ProgressView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("LVL \(level + 1)")
+                Text("LVL \(level)")
                     .font(.title_20)
                     .foregroundColor(.white)
                 ZStack {

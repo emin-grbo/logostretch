@@ -9,22 +9,52 @@ import SwiftUI
 
 class QuestionsViewModel: ObservableObject {
     
-    @AppStorage("level") var level = 0
+    @AppStorage("level") var level = 1
     @AppStorage("current") var current = 0
     
-    @Published var questions = [Logo]()
+    @EnvironmentObject var dataController: DataController
+    @Published var questions = [Int: [Logo]]()
     
     var currentQuestion: Logo?
     
     func fetchQuestions() {
-        questions = [
-            Logo(imgString: "mcdonalds", names: ["mcdonalds", "mc", "aa"]),
-            Logo(imgString: "breitling", names: ["breitling", "aa"]),
-            Logo(imgString: "logitech", names: ["logitech", "aa"])
+        questions =
+        [
+            1 :
+                [
+                    Logo(imgString: "mcdonalds", names: ["mcdonalds", "mc", "aa"]),
+                    Logo(imgString: "breitling", names: ["breitling", "aa"])
+                ],
+            2 :
+                [
+                    Logo(imgString: "logitech", names: ["logitech", "aa"])
+                ]
         ]
     }
     
-    func getNextQuestion() {
-        currentQuestion = questions.randomElement()
+    func getCurrentQuestion() {
+        guard let currentLevelQuestions = questions[level] else { return }
+        
+        guard current < currentLevelQuestions.count else {
+            if currentLevelQuestions.first(where: {!$0.isSolved}) == nil {
+                level += 1
+                getCurrentQuestion()
+            } else {
+                currentQuestion = currentLevelQuestions.first(where: {!$0.isSolved})
+            }
+            
+            return
+        }
+        
+        currentQuestion = currentLevelQuestions[current]
+    }
+    
+    func nextQuestion() {
+        current += 1
+    }
+    
+    func resetUserInfo() {
+        level = 1
+        current = 0
     }
 }

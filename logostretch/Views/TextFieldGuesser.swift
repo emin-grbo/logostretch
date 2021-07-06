@@ -59,6 +59,7 @@ struct TextFieldGuesser: View {
         
         if !isStretched {
             focusedField = nil
+            vm.currentQuestion?.isSolved = true
         }
     }
     
