@@ -3,33 +3,33 @@ import SwiftUI
 struct ProgressView: View {
     
     @State private var showSheet = false
-    @State private var hasProgress = true
+    @AppStorage("level") var level = 1
+    let regularSize: CGFloat = UIScreen.main.bounds.width
     
-    let regularSize: CGFloat
-    let level: Int
-    
-    @StateObject var vm: QuestionsViewModel
+    let progressRatio: CGFloat
     
     var body: some View {
-        GeometryReader { gr in
+        
         VStack {
             HStack {
                 Text("LVL \(level)")
                     .font(.title_20)
                     .foregroundColor(.white)
-                ZStack {
-                    RoundedRectangle(cornerRadius: 24)
-                        .fill(Color.xpurpleDark)
-                        .frame(height: 16)
-                    RoundedRectangle(cornerRadius: 24)
-                        .fill(Color.white)
-                        .padding(.trailing, getProgress(width: gr.size.width))
-                        .padding(.leading, 4)
-                        .padding(.trailing, 4)
-                        .opacity(hasProgress ? 1 : 0)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 24)
+                            .fill(Color.xpurpleDark)
+                            .frame(height: 16)
+                        GeometryReader { gr in
+                        RoundedRectangle(cornerRadius: 24)
+                            .fill(Color.white)
+                            .padding(.trailing, paddingProgress(forWidth: gr.size.width))
+                            .padding(.leading, 4)
+                            .padding(.trailing, 4)
+                            .opacity(progressRatio != 0 ? 1 : 0)
+                        }
                         .frame(height: 8)
-                }
-                .padding()
+                    }
+                    .padding()
                 Button {
                     print("levels")
                     showSheet.toggle()
@@ -48,24 +48,13 @@ struct ProgressView: View {
         } content: {
             EmptyView()
         }
-        .onAppear {
-            hasProgress = true
-            if vm.questions.filter({$0.isSolved}).count == 0 {
-                hasProgress = false
-            }
-        }
-    }
     }
     
-    func getProgress(width: CGFloat) -> CGFloat {
-        let numOfQuestions = CGFloat(vm.questions.count)
-        let segmentWidth = width / numOfQuestions
-        let padding = CGFloat(vm.questions.filter({!$0.isSolved}).count) * segmentWidth
-        
-        guard vm.questions.filter({$0.isSolved}).count > 0 else {
+    private func paddingProgress(forWidth size: CGFloat) -> CGFloat {
+        if progressRatio == 1 { // all questions answered
             return 0
+        } else {
+            return progressRatio*size
         }
-
-        return padding
     }
 }

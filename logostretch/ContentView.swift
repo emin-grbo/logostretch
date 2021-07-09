@@ -16,6 +16,8 @@ struct ContentView: View {
     
     @EnvironmentObject var dataController: DataController
     @StateObject var vm = QuestionsViewModel()
+    
+    @AppStorage("level") var level = 1
 
     @State var didCompleteReward = false
     @State var isShowingAd = false
@@ -44,7 +46,8 @@ struct ContentView: View {
             ZStack {
                 Color.xpurple
                 
-                ProgressView(regularSize: regularSize, level: vm.level, vm: vm)
+                ProgressView(progressRatio: vm.progressRatio())
+                    .opacity(level == vm.maxLevel ? 0 : 1)
                 
                 VStack {
                     
@@ -119,6 +122,7 @@ struct ContentView: View {
                     Button("dlt all") {
                         dataController.deleteAll()
                         vm.resetUserInfo()
+                        loadGame()
                     }
                     .foregroundColor(.white)
                     
@@ -129,11 +133,7 @@ struct ContentView: View {
             }
             .edgesIgnoringSafeArea(.all)
             .onAppear {
-                vm.setupData(dataController)
-                vm.createMockQuestions()
-                vm.fetchQuestions()
-                vm.getCurrentQuestion()
-                isStretched = vm.questions.count > 0
+                loadGame()
             }
             .sheet(isPresented: $showEndLevelSheet) {
                 isStretched = vm.questions.count > 0
@@ -141,6 +141,14 @@ struct ContentView: View {
                 Text("LEVEL COMPLETE!")
             }
         }
+    }
+    
+    private func loadGame() {
+        vm.setupData(dataController)
+        vm.createMockQuestions()
+        vm.fetchQuestions()
+        vm.getCurrentQuestion()
+        isStretched = vm.questions.count > 0
     }
     
     private func reloadGame() {

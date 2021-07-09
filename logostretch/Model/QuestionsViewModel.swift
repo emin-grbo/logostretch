@@ -71,4 +71,10 @@ class QuestionsViewModel: ObservableObject {
     func createMockQuestions() {
         dataController?.createSampleData()
     }
+    
+    func progressRatio() -> CGFloat {
+        let solved = questions.filter({$0.isSolved}).count
+        let total = questions.count
+        return CGFloat(solved)/CGFloat(total)
+    }
 }
