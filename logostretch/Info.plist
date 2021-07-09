@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>AppLovinSdkKey</key>
 	<string>uJTStFtnBSoUlTFE0o1HKIn0IIgOcM0UrF4nlrTS9DL-4EIZT8hxSS6TL3O--wlEPclaqzlQG3LJDMRzWc_FVV</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -197,9 +199,9 @@
 		<string>armv7</string>
 	</array>
 	<key>UIStatusBarHidden</key>
-	<true/>
+	<false/>
 	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleDefault</string>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
