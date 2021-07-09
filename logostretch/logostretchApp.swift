@@ -27,6 +27,7 @@ struct logostretchApp: App {
     @StateObject var dataController: DataController
     
     init() {
+        #warning("do not create in memory")
         let dataController = DataController()
         _dataController = StateObject(wrappedValue: dataController)
     }

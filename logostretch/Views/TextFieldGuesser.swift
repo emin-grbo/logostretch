@@ -55,11 +55,11 @@ struct TextFieldGuesser: View {
     
     private func checkAnswer() {
         let guessFormatted = logoGuess.lowercased().replacingOccurrences(of: " ", with: "")
-        isStretched = !((vm.currentQuestion?.names ?? []).contains(guessFormatted))
+        isStretched = !(vm.currentAnswers.contains(guessFormatted))
         
         if !isStretched {
             focusedField = nil
-            vm.currentQuestion?.isSolved = true
+            vm.markCorrectQuestion()
         }
     }
     

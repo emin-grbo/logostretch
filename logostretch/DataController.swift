@@ -4,6 +4,9 @@ import SwiftUI
 class DataController: ObservableObject {
     
     let container: NSPersistentCloudKitContainer
+    let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+    
+    @AppStorage("dataVersion") var dataVersion = 0
     
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "logostretch")
@@ -19,40 +22,31 @@ class DataController: ObservableObject {
         }
     }
     
-    static var preview: DataController = {
-        let dataController = DataController(inMemory: true)
+    func createSampleData() {
+        print("DATAVERSION: \(dataVersion)")
+        guard fetchAllQuestions().count == 0,
+              dataVersion <= 1
+        else { return }
 
-        do {
-            try dataController.createSampleData()
-        } catch {
-            fatalError("Fatal error creating preview: \(error.localizedDescription)")
-        }
-        
-        return dataController
-    }()
-    
-    func createSampleData() throws {
-        let viewContext = container.viewContext
-        
-        let mockData =
-        [
-            LogoData(imgString: "mcdonalds", names: "mcdonalds, mc, aa", level: 1),
-            LogoData(imgString: "breitling", names: "breitling, aa", level: 1),
-            LogoData(imgString: "logitech", names: "logitech, aa", level: 2)
+        let mockData: Set<LogoData> = [
+        LogoData(imgString: "mcdonalds", names: "mcdonalds, mc, aa", level: 1),
+        LogoData(imgString: "breitling", names: "breitling, aa", level: 1),
+        LogoData(imgString: "logitech", names: "logitech, aa", level: 2)
         ]
 
-        nastaviti ovde tj konvertovati datu za odredjeni nivo, mozda i sve
+        let viewContext = container.viewContext
         
-        try viewContext.save()
-    }
-    
-    func addLogo(data: LogoData) {
-        let logo = Logo(context: container.viewContext)
-        logo.id = data.id
-        logo.imgString = data.imgString
-        logo.isSolved = data.isSolved
-        logo.level = Int16(data.level)
+        for logo in mockData {
+            let cdLogo = Logo(context: viewContext)
+            cdLogo.id = logo.id
+            cdLogo.imgString = logo.imgString
+            cdLogo.isSolved = logo.isSolved
+            cdLogo.level = Int16(logo.level)
+            cdLogo.names = logo.names
+            print("=== save logo: \(logo)")
+        }
         save()
+        dataVersion = 1
     }
     
     func save() {
@@ -65,14 +59,43 @@ class DataController: ObservableObject {
         container.viewContext.delete(object)
     }
     
-//    func deleteAll() {
-//        let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
-//        let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
-//        _ = try? container.viewContext.execute(batchDeleteRequest1)
-//
-//        let fetchRequest2: NSFetchRequest<NSFetchRequestResult> = Project.fetchRequest()
-//        let batchDeleteRequest2 = NSBatchDeleteRequest(fetchRequest: fetchRequest2)
-//        _ = try? container.viewContext.execute(batchDeleteRequest2)
-//    }
+    func fetchQuestionsForLevel(_ level: Int) -> [Logo] {
+        let fetchRequest: NSFetchRequest<Logo> = Logo.fetchRequest()
+        
+        fetchRequest.predicate = NSPredicate(format: "%K == %d", #keyPath(Logo.level), level)
+        
+        do {
+            let questions = try container.viewContext.fetch(fetchRequest)
+            print("********** GOT: \(questions.count) **********")
+            return questions
+        } catch {
+            return []
+        }
+    }
+    
+    func fetchAllQuestions() -> [Logo] {
+        let fetchRequest: NSFetchRequest<Logo> = Logo.fetchRequest()
+        do {
+            let questions = try container.viewContext.fetch(fetchRequest)
+            return questions
+        } catch {
+            return []
+        }
+    }
+    
+    func updateQuestion(_ question: String) {
+        let fetchRequest: NSFetchRequest<Logo> = Logo.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "%K == %d", #keyPath(Logo.imgString), question)
+        let question = try? container.viewContext.fetch(fetchRequest).first
+        question?.isSolved = true
+        save()
+    }
+    
+    func deleteAll() {
+        dataVersion = 0
+        let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = Logo.fetchRequest()
+        let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
+        _ = try? container.viewContext.execute(batchDeleteRequest1)
+    }
     
 }

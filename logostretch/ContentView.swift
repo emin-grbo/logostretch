@@ -24,6 +24,8 @@ struct ContentView: View {
     @State var logoGuess: String = ""
     @State private var visibility: Double = 1
     
+    @State private var showEndLevelSheet = false
+    
     @State private var keyboardHeight: CGFloat = 0
     @FocusState private var focusedField: Field?
     
@@ -42,7 +44,7 @@ struct ContentView: View {
             ZStack {
                 Color.xpurple
                 
-                ProgressView(regularSize: regularSize, level: vm.level)
+                ProgressView(regularSize: regularSize, level: vm.level, vm: vm)
                 
                 VStack {
                     
@@ -80,7 +82,10 @@ struct ContentView: View {
                     .zIndex(9)
                     
                     // MARK: MAIN STRETCH -----------------------------
-                    LogoView(isStretched: $isStretched, regularSize: regularSize, strechedSize: strechedSize, imgString: vm.currentQuestion?.imgString ?? "")
+                    LogoView(isStretched: $isStretched,
+                             regularSize: regularSize,
+                             strechedSize: strechedSize,
+                             imgString: vm.questions.count == 0 ? "theEnd" : vm.currentQuestion?.imgString ?? "")
                     .onAppear {
                         focusedField = .field
                     }
@@ -110,6 +115,13 @@ struct ContentView: View {
                         .foregroundColor(Color.white)
                         .fontWeight(.black)
                     
+                    // MARK: DELETE
+                    Button("dlt all") {
+                        dataController.deleteAll()
+                        vm.resetUserInfo()
+                    }
+                    .foregroundColor(.white)
+                    
                 }
                 .opacity(visibility)
                 .animation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0.5), value: isStretched)
@@ -118,20 +130,27 @@ struct ContentView: View {
             .edgesIgnoringSafeArea(.all)
             .onAppear {
                 vm.setupData(dataController)
+                vm.createMockQuestions()
                 vm.fetchQuestions()
                 vm.getCurrentQuestion()
-//                vm.resetUserInfo()
+                isStretched = vm.questions.count > 0
+            }
+            .sheet(isPresented: $showEndLevelSheet) {
+                isStretched = vm.questions.count > 0
+            } content: {
+                Text("LEVEL COMPLETE!")
             }
         }
     }
     
     private func reloadGame() {
-        isStretched = true
+        isStretched = vm.questions.count > 0
         visibility = 0
         logoGuess = ""
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             vm.nextQuestion()
+            showEndLevelSheet = vm.checkIfLevelDone()
             vm.getCurrentQuestion()
             visibility = 1
             focusedField = .field

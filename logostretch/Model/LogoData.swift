@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LogoData {
+struct LogoData: Hashable {
     let id = UUID()
     let imgString: String
     let names: String
