@@ -46,7 +46,7 @@ struct ProgressView: View {
         .sheet(isPresented: $showSheet) {
             print("DISMISSED")
         } content: {
-            EmptyView()
+            MedalsView()
         }
     }
     
