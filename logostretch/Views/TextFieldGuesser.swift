@@ -9,10 +9,12 @@ import SwiftUI
 
 struct TextFieldGuesser: View {
     
+    @AppStorage(StorageKeys.badgeProgress.rawValue) var badgeProgress = 0
+    
     @Binding var logoGuess: String
     @Binding var isStretched: Bool
     @StateObject var vm: QuestionsViewModel
-    @FocusState private var focusedField: Field?
+//    @FocusState private var focusedField: Field?
     
     var body: some View {
         ZStack {
@@ -20,7 +22,7 @@ struct TextFieldGuesser: View {
                       onCommit: {
                 print("commited")
             })
-                .focused($focusedField, equals: .field)
+//                .focused($focusedField, equals: .field)
                 .frame(height: 50)
                 .multilineTextAlignment(.center)
                 .accentColor(.xpurple)
@@ -58,7 +60,7 @@ struct TextFieldGuesser: View {
         isStretched = !(vm.currentAnswers.contains(guessFormatted))
         
         if !isStretched {
-            focusedField = nil
+//            focusedField = nil
             vm.markCorrectQuestion()
         }
     }

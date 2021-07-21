@@ -25,6 +25,9 @@
 		D77D716426924BCA008BA8AD /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D716326924BCA008BA8AD /* ProgressView.swift */; };
 		D77D716726925357008BA8AD /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D716626925357008BA8AD /* LogoView.swift */; };
 		D77D716926925871008BA8AD /* TextFieldGuesser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D716826925871008BA8AD /* TextFieldGuesser.swift */; };
+		D784CF16269DCCA600621D18 /* StorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D784CF15269DCCA600621D18 /* StorageKeys.swift */; };
+		D784CF18269E104200621D18 /* Badges.swift in Sources */ = {isa = PBXBuildFile; fileRef = D784CF17269E104200621D18 /* Badges.swift */; };
+		D784CF1A269E396F00621D18 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D784CF19269E396F00621D18 /* testView.swift */; };
 		D7D0341A268A40830042CD42 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D03419268A40830042CD42 /* AdView.swift */; };
 		D7D0341C268A4F320042CD42 /* AppLovinSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D0341B268A4F320042CD42 /* AppLovinSDK.xcframework */; };
 		D7D0341E268A4F580042CD42 /* AppLovinSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D7D0341D268A4F580042CD42 /* AppLovinSDKResources.bundle */; };
@@ -83,6 +86,9 @@
 		D77D716326924BCA008BA8AD /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		D77D716626925357008BA8AD /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		D77D716826925871008BA8AD /* TextFieldGuesser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldGuesser.swift; sourceTree = "<group>"; };
+		D784CF15269DCCA600621D18 /* StorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageKeys.swift; sourceTree = "<group>"; };
+		D784CF17269E104200621D18 /* Badges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badges.swift; sourceTree = "<group>"; };
+		D784CF19269E396F00621D18 /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
 		D7D03419268A40830042CD42 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
 		D7D0341B268A4F320042CD42 /* AppLovinSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AppLovinSDK.xcframework; sourceTree = "<group>"; };
 		D7D0341D268A4F580042CD42 /* AppLovinSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AppLovinSDKResources.bundle; sourceTree = "<group>"; };
@@ -218,6 +224,8 @@
 			children = (
 				D77D715D2691BE06008BA8AD /* QuestionsViewModel.swift */,
 				D77B932D26950A42001D2945 /* LogoData.swift */,
+				D784CF15269DCCA600621D18 /* StorageKeys.swift */,
+				D784CF17269E104200621D18 /* Badges.swift */,
 				D77B932A2694F8B7001D2945 /* logostretch.xcdatamodeld */,
 			);
 			path = Model;
@@ -243,6 +251,7 @@
 				D77D716626925357008BA8AD /* LogoView.swift */,
 				D77D716826925871008BA8AD /* TextFieldGuesser.swift */,
 				D75E801E2699E93A007DA045 /* MedalsView.swift */,
+				D784CF19269E396F00621D18 /* testView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -364,6 +373,7 @@
 			files = (
 				D70F81312673DAA300EAB39A /* KeyboardAdaptive.swift in Sources */,
 				D774529B2664B6B9002FA097 /* xRoundedRect.swift in Sources */,
+				D784CF18269E104200621D18 /* Badges.swift in Sources */,
 				D74821CC2663E8C0008710DC /* ContentView.swift in Sources */,
 				D7D0341A268A40830042CD42 /* AdView.swift in Sources */,
 				D77B932E26950A42001D2945 /* LogoData.swift in Sources */,
@@ -377,6 +387,8 @@
 				D74821D926640C8D008710DC /* Color+ex.swift in Sources */,
 				D7EF59A2266CDDB900288BA4 /* Fonts+ex.swift in Sources */,
 				D77D716726925357008BA8AD /* LogoView.swift in Sources */,
+				D784CF1A269E396F00621D18 /* testView.swift in Sources */,
+				D784CF16269DCCA600621D18 /* StorageKeys.swift in Sources */,
 				D77B932C2694F8B7001D2945 /* logostretch.xcdatamodeld in Sources */,
 				D774529D2664B6D5002FA097 /* Modifiers.swift in Sources */,
 			);
@@ -440,7 +452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -499,7 +511,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -524,7 +536,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = logostretch/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -556,7 +568,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = logostretch/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

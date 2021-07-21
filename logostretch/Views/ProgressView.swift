@@ -2,17 +2,19 @@ import SwiftUI
 
 struct ProgressView: View {
     
-    @State private var showSheet = false
-    @AppStorage("level") var level = 1
-    let regularSize: CGFloat = UIScreen.main.bounds.width
+    @AppStorage(StorageKeys.level.rawValue) var level = 1
+    @AppStorage(StorageKeys.badgeIndex.rawValue) var badgeIndex = 0
+    @AppStorage(StorageKeys.badgeProgress.rawValue) var badgeProgress = 0
     
-    let progressRatio: CGFloat
+    @State private var showSheet = false
+    
+    let regularSize: CGFloat = UIScreen.main.bounds.width
     
     var body: some View {
         
         VStack {
             HStack {
-                Text("LVL \(level)")
+                Text("BDG \(badgeIndex)")
                     .font(.title_20)
                     .foregroundColor(.white)
                     ZStack {
@@ -22,10 +24,10 @@ struct ProgressView: View {
                         GeometryReader { gr in
                         RoundedRectangle(cornerRadius: 24)
                             .fill(Color.white)
-                            .padding(.trailing, paddingProgress(forWidth: gr.size.width))
                             .padding(.leading, 4)
                             .padding(.trailing, 4)
-                            .opacity(progressRatio != 0 ? 1 : 0)
+                            .opacity(1)
+                            .frame(width: progressSize(forWidth: gr.size.width))
                         }
                         .frame(height: 8)
                     }
@@ -50,9 +52,17 @@ struct ProgressView: View {
         }
     }
     
-    private func paddingProgress(forWidth size: CGFloat) -> CGFloat {
+    private func progressSize(forWidth size: CGFloat) -> CGFloat {
+        
+        let badges = Badges.badges
+
+        guard badgeIndex < badges.count else { return size }
+        
+        let currentBadge = badges[badgeIndex]
+        let progressRatio = CGFloat(badgeProgress) / CGFloat(currentBadge.goal)
+        
         if progressRatio == 1 { // all questions answered
-            return 0
+            return size
         } else {
             return progressRatio*size
         }

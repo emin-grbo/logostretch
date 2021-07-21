@@ -11,13 +11,13 @@ class Stretch: ObservableObject {
     @Published var state = true
 }
 
-@available(iOS 15.0, *)
+//@available(iOS 15.0, *)
 struct ContentView: View {
+    
+    @AppStorage(StorageKeys.level.rawValue) var level = 1
     
     @EnvironmentObject var dataController: DataController
     @StateObject var vm = QuestionsViewModel()
-    
-    @AppStorage("level") var level = 1
 
     @State var didCompleteReward = false
     @State var isShowingAd = false
@@ -29,7 +29,7 @@ struct ContentView: View {
     @State private var showEndLevelSheet = false
     
     @State private var keyboardHeight: CGFloat = 0
-    @FocusState private var focusedField: Field?
+//    @FocusState private var focusedField: Field?
     
     let regularSize = UIScreen.main.bounds.width
     let strechedSize = UIScreen.main.bounds.width / 2
@@ -40,22 +40,22 @@ struct ContentView: View {
                 .onChange(of: didCompleteReward) { newValue in
                     if didCompleteReward {
                         isShowingAd = false
+                        vm.getNextQuestion()
                     }
                 }
         } else {
             ZStack {
                 Color.xpurple
                 
-                ProgressView(progressRatio: vm.progressRatio())
+                ProgressView()
                     .opacity(level == vm.maxLevel ? 0 : 1)
                 
                 VStack {
                     
                     HStack {
-                        // MARK: Skip, button 􀌱
+                        // MARK: Hint, button 􀌱
                         Button {
-                            print("hint")
-                            vm.current += 1
+                            print("HINT")
                         } label: {
                             HStack {
                                 Image(systemName: "t.bubble.fill")
@@ -90,7 +90,7 @@ struct ContentView: View {
                              strechedSize: strechedSize,
                              imgString: vm.questions.count == 0 ? "theEnd" : vm.currentQuestion?.imgString ?? "")
                     .onAppear {
-                        focusedField = .field
+//                        focusedField = .field
                     }
                     
                     if isStretched {
@@ -113,7 +113,7 @@ struct ContentView: View {
                         .opacity(isStretched ? 0 : 1)
                     }
                     
-                    Text("\(vm.level) \(vm.current)")
+                    Text("\(vm.level)")
                         .font(.title)
                         .foregroundColor(Color.white)
                         .fontWeight(.black)
@@ -147,7 +147,7 @@ struct ContentView: View {
         vm.setupData(dataController)
         vm.createMockQuestions()
         vm.fetchQuestions()
-        vm.getCurrentQuestion()
+        vm.getNextQuestion()
         isStretched = vm.questions.count > 0
     }
     
@@ -157,11 +157,10 @@ struct ContentView: View {
         logoGuess = ""
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            vm.nextQuestion()
-            showEndLevelSheet = vm.checkIfLevelDone()
-            vm.getCurrentQuestion()
+            showEndLevelSheet = vm.checkBadgeProgress()
+            vm.getNextQuestion()
             visibility = 1
-            focusedField = .field
+//            focusedField = .field
         }
     }
 }

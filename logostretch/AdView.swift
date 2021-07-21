@@ -99,7 +99,9 @@ class RewardedAd: UIViewController, MARewardedAdDelegate {
     // MARK: MARewardedAdDelegate Protocol
     func didStartRewardedVideo(for ad: MAAd) {}
     
-    func didCompleteRewardedVideo(for ad: MAAd) {}
+    func didCompleteRewardedVideo(for ad: MAAd) {
+        print("")
+    }
     
     func didRewardUser(for ad: MAAd, with reward: MAReward) {
         // Rewarded ad was displayed and user should receive the reward

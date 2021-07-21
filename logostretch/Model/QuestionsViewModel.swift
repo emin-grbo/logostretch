@@ -11,8 +11,9 @@ class QuestionsViewModel: ObservableObject {
     
     let maxLevel = 3
     
-    @AppStorage("level") var level = 1
-    @AppStorage("current") var current = 0
+    @AppStorage(StorageKeys.level.rawValue) var level = 1
+    @AppStorage(StorageKeys.badgeProgress.rawValue) var badgeProgress = 0
+    @AppStorage(StorageKeys.badgeIndex.rawValue) var badgeIndex = 0
     
     var dataController: DataController?
     
@@ -29,52 +30,47 @@ class QuestionsViewModel: ObservableObject {
         questions = dataController?.fetchQuestionsForLevel(level) ?? []
     }
     
-    func getCurrentQuestion() {
-        guard current < questions.count else {
-            questions = []
-            currentQuestion = nil
-            currentAnswers = []
-            level = maxLevel
+    func getNextQuestion() {
+        questions.shuffle()
+        guard let nextQuestion = questions.first(where: {!$0.isSolved && $0 != currentQuestion}) else {
+            level += 1
+            fetchQuestions()
+            getNextQuestion()
             return
         }
-        currentQuestion = questions[current]
+        currentQuestion = nextQuestion
         currentAnswers = currentQuestion?.names?.components(separatedBy: ", ") ?? []
     }
     
-    func checkIfLevelDone() -> Bool {
-        if questions.first(where: {!$0.isSolved}) == nil {
-            // If there are no unsolved questions, move to next level
-            level += 1
-            current = 0
-            fetchQuestions()
-            getCurrentQuestion()
+    func markCorrectQuestion() {
+        updateBadgeState()
+        questions.first(where: {$0 == currentQuestion})?.isSolved = true
+        dataController?.updateQuestion(currentQuestion?.imgString ?? "")
+//        questions = dataController?.fetchQuestionsForLevel(level) ?? []
+    }
+    
+    func updateBadgeState() {
+        badgeProgress += 1
+    }
+    
+    func checkBadgeProgress() -> Bool {
+        let currentBadge = Badges.badges[badgeIndex]
+        if badgeProgress == currentBadge.goal {
+            if badgeIndex == Badges.badges.count { return false }
+            badgeIndex += 1
+            badgeProgress = 0
             return true
         }
         return false
-    }
-    
-    func nextQuestion() {
-        current += 1
-    }
-    
-    func markCorrectQuestion() {
-        questions[current].isSolved = true
-        dataController?.updateQuestion(currentQuestion?.imgString ?? "")
-        questions = dataController?.fetchQuestionsForLevel(level) ?? []
-    }
-    
-    func resetUserInfo() {
-        level = 1
-        current = 0
     }
     
     func createMockQuestions() {
         dataController?.createSampleData()
     }
     
-    func progressRatio() -> CGFloat {
-        let solved = questions.filter({$0.isSolved}).count
-        let total = questions.count
-        return CGFloat(solved)/CGFloat(total)
+    func resetUserInfo() {
+        badgeProgress = 0
+        badgeIndex = 0
+        level = 1
     }
 }

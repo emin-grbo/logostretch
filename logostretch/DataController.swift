@@ -6,7 +6,7 @@ class DataController: ObservableObject {
     let container: NSPersistentCloudKitContainer
     let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     
-    @AppStorage("dataVersion") var dataVersion = 0
+    @AppStorage(StorageKeys.dataVersion.rawValue) var dataVersion = 0
     
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "logostretch")
@@ -31,7 +31,17 @@ class DataController: ObservableObject {
         let mockData: Set<LogoData> = [
         LogoData(imgString: "mcdonalds", names: "mcdonalds, mc, aa", level: 1),
         LogoData(imgString: "breitling", names: "breitling, aa", level: 1),
-        LogoData(imgString: "logitech", names: "logitech, aa", level: 2)
+        LogoData(imgString: "logitech", names: "logitech, aa", level: 1),
+        LogoData(imgString: "adidas", names: "adidas, aa", level: 1),
+        LogoData(imgString: "mercedes", names: "mercedes, aa", level: 1),
+        LogoData(imgString: "cocacola", names: "cocacola, coca-cola, aa", level: 1),
+        LogoData(imgString: "google", names: "google, aa", level: 1),
+        LogoData(imgString: "rolex", names: "rolex, aa", level: 1),
+        
+        LogoData(imgString: "audi", names: "audi, aa", level: 2),
+        LogoData(imgString: "mini", names: "mini, minicooper, aa", level: 2),
+        LogoData(imgString: "burgerking", names: "burgerking, aa", level: 2),
+        LogoData(imgString: "pizzahut", names: "pizzahut, aa", level: 2)
         ]
 
         let viewContext = container.viewContext
