@@ -3,8 +3,8 @@ import SwiftUI
 struct ProgressView: View {
     
     @AppStorage(StorageKeys.level.rawValue) var level = 1
-    @AppStorage(StorageKeys.badgeIndex.rawValue) var badgeIndex = 0
-    @AppStorage(StorageKeys.badgeProgress.rawValue) var badgeProgress = 0
+    @AppStorage(StorageKeys.medalIndex.rawValue) var medalIndex = 0
+    @AppStorage(StorageKeys.medalProgress.rawValue) var medalProgress = 0
     
     @State private var showSheet = false
     
@@ -14,7 +14,7 @@ struct ProgressView: View {
         
         VStack {
             HStack {
-                Text("BDG \(badgeIndex)")
+                Text("BDG \(medalIndex)")
                     .font(.title_20)
                     .foregroundColor(.white)
                     ZStack {
@@ -54,12 +54,12 @@ struct ProgressView: View {
     
     private func progressSize(forWidth size: CGFloat) -> CGFloat {
         
-        let badges = Badges.badges
+        let medals = Medals.medalsList
 
-        guard badgeIndex < badges.count else { return size }
+        guard medalIndex < medals.count else { return size }
         
-        let currentBadge = badges[badgeIndex]
-        let progressRatio = CGFloat(badgeProgress) / CGFloat(currentBadge.goal)
+        let currentMedal = medals[medalIndex]
+        let progressRatio = CGFloat(medalProgress) / CGFloat(currentMedal.goal)
         
         if progressRatio == 1 { // all questions answered
             return size

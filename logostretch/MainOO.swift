@@ -1,33 +1,22 @@
-//
-//  QuestionsViewModel.swift
-//  logostretch
-//
-//  Created by Emin Grbo on 04/07/2021.
-//
-
 import SwiftUI
 
-class QuestionsViewModel: ObservableObject {
-    
-    let maxLevel = 3
+class MainOO: ObservableObject {
     
     @AppStorage(StorageKeys.level.rawValue) var level = 1
-    @AppStorage(StorageKeys.badgeProgress.rawValue) var badgeProgress = 0
-    @AppStorage(StorageKeys.badgeIndex.rawValue) var badgeIndex = 0
-    
-    var dataController: DataController?
+    @AppStorage(StorageKeys.medalProgress.rawValue) var medalProgress = 0
+    @AppStorage(StorageKeys.medalIndex.rawValue) var medalIndex = 0
     
     @Published var questions: [Logo] = []
     
     var currentQuestion: Logo?
     var currentAnswers: [String] = []
     
-    func setupData(_ dataController: DataController) {
-        self.dataController = dataController
-    }
+    private var mainDO = MainDO()
+    
+    let maxLevel = 3
     
     func fetchQuestions() {
-        questions = dataController?.fetchQuestionsForLevel(level) ?? []
+        questions = mainDO.fetchQuestionsForLevel(level)
     }
     
     func getNextQuestion() {
@@ -45,32 +34,36 @@ class QuestionsViewModel: ObservableObject {
     func markCorrectQuestion() {
         updateBadgeState()
         questions.first(where: {$0 == currentQuestion})?.isSolved = true
-        dataController?.updateQuestion(currentQuestion?.imgString ?? "")
+        mainDO.updateQuestion(currentQuestion?.imgString ?? "")
 //        questions = dataController?.fetchQuestionsForLevel(level) ?? []
     }
     
     func updateBadgeState() {
-        badgeProgress += 1
+        medalProgress += 1
     }
     
-    func checkBadgeProgress() -> Bool {
-        let currentBadge = Badges.badges[badgeIndex]
-        if badgeProgress == currentBadge.goal {
-            if badgeIndex == Badges.badges.count { return false }
-            badgeIndex += 1
-            badgeProgress = 0
+    func resetData() {
+        mainDO.deleteAll()
+    }
+    
+    func checkMedalProgress() -> Bool {
+        let currentBadge = Medals.medalsList[medalIndex]
+        if medalProgress == currentBadge.goal {
+            if medalIndex == Medals.medalsList.count { return false }
+            medalIndex += 1
+            medalProgress = 0
             return true
         }
         return false
     }
     
     func createMockQuestions() {
-        dataController?.createSampleData()
+        mainDO.createSampleData()
     }
     
     func resetUserInfo() {
-        badgeProgress = 0
-        badgeIndex = 0
+        medalProgress = 0
+        medalIndex = 0
         level = 1
     }
 }

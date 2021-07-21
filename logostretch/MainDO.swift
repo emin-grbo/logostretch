@@ -1,7 +1,7 @@
 import CoreData
 import SwiftUI
 
-class DataController: ObservableObject {
+class MainDO {
     
     let container: NSPersistentCloudKitContainer
     let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String

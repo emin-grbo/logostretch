@@ -9,11 +9,13 @@ import SwiftUI
 
 struct TextFieldGuesser: View {
     
-    @AppStorage(StorageKeys.badgeProgress.rawValue) var badgeProgress = 0
+    @AppStorage(StorageKeys.medalProgress.rawValue) var medalProgress = 0
     
     @Binding var logoGuess: String
     @Binding var isStretched: Bool
-    @StateObject var vm: QuestionsViewModel
+    
+    #warning("POI - Not sure how to pass the ObservableObject here in the best way. Environment object?")
+    @StateObject var mainOO: MainOO
 //    @FocusState private var focusedField: Field?
     
     var body: some View {
@@ -57,15 +59,19 @@ struct TextFieldGuesser: View {
     
     private func checkAnswer() {
         let guessFormatted = logoGuess.lowercased().replacingOccurrences(of: " ", with: "")
-        isStretched = !(vm.currentAnswers.contains(guessFormatted))
+        isStretched = !(mainOO.currentAnswers.contains(guessFormatted))
         
         if !isStretched {
 //            focusedField = nil
-            vm.markCorrectQuestion()
+            mainOO.markCorrectQuestion()
         }
     }
     
     private func updateDeleteButtonVisibility() {
         logoGuess = ""
     }
+}
+
+enum Field: Hashable {
+    case field
 }

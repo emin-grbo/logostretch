@@ -14,6 +14,6 @@ enum StorageKeys: String {
     case dataVersion
     
     // MARK: Badge keys
-    case badgeProgress
-    case badgeIndex
+    case medalProgress
+    case medalIndex
 }

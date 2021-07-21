@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MedalsView: View {
     
-    @AppStorage(StorageKeys.badgeIndex.rawValue) var badgeIndex = 0
+    @AppStorage(StorageKeys.medalIndex.rawValue) var medalIndex = 0
     
     var body: some View {
         
@@ -16,7 +16,7 @@ struct MedalsView: View {
             Color.xpurple
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    ForEach(Badges.badges) { item in
+                    ForEach(Medals.medalsList) { item in
                         Image(item.imgString)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -32,9 +32,9 @@ struct MedalsView: View {
         .edgesIgnoringSafeArea(.all)
     }
     
-    func isUnlocked(_ badge: Badge) -> Bool {
-        let index = Badges.badges.firstIndex(of: badge) ?? 0
-        return index < badgeIndex
+    func isUnlocked(_ medal: Medal) -> Bool {
+        let index = Medals.medalsList.firstIndex(of: medal) ?? 0
+        return index < medalIndex
     }
     
 }

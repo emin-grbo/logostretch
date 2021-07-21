@@ -1,9 +1,3 @@
-//
-//  ContentView.swift
-//  logostretch
-//
-//  Created by Emin Grbo on 30/05/2021.
-//
 import SwiftUI
 import Combine
 
@@ -12,12 +6,11 @@ class Stretch: ObservableObject {
 }
 
 //@available(iOS 15.0, *)
-struct ContentView: View {
+struct MainView: View {
     
     @AppStorage(StorageKeys.level.rawValue) var level = 1
     
-    @EnvironmentObject var dataController: DataController
-    @StateObject var vm = QuestionsViewModel()
+    @StateObject var mainOO = MainOO()
 
     @State var didCompleteReward = false
     @State var isShowingAd = false
@@ -40,7 +33,7 @@ struct ContentView: View {
                 .onChange(of: didCompleteReward) { newValue in
                     if didCompleteReward {
                         isShowingAd = false
-                        vm.getNextQuestion()
+                        mainOO.getNextQuestion()
                     }
                 }
         } else {
@@ -48,7 +41,7 @@ struct ContentView: View {
                 Color.xpurple
                 
                 ProgressView()
-                    .opacity(level == vm.maxLevel ? 0 : 1)
+                    .opacity(level == mainOO.maxLevel ? 0 : 1)
                 
                 VStack {
                     
@@ -88,7 +81,7 @@ struct ContentView: View {
                     LogoView(isStretched: $isStretched,
                              regularSize: regularSize,
                              strechedSize: strechedSize,
-                             imgString: vm.questions.count == 0 ? "theEnd" : vm.currentQuestion?.imgString ?? "")
+                             imgString: mainOO.questions.count == 0 ? "theEnd" : mainOO.currentQuestion?.imgString ?? "")
                     .onAppear {
 //                        focusedField = .field
                     }
@@ -96,7 +89,7 @@ struct ContentView: View {
                     if isStretched {
                         
                         // MARK: Textfield entry
-                        TextFieldGuesser(logoGuess: $logoGuess, isStretched: $isStretched, vm: vm)
+                        TextFieldGuesser(logoGuess: $logoGuess, isStretched: $isStretched, mainOO: mainOO)
                         
                     } else {
                         // MARK: END BUTTON ------------------------
@@ -113,15 +106,15 @@ struct ContentView: View {
                         .opacity(isStretched ? 0 : 1)
                     }
                     
-                    Text("\(vm.level)")
+                    Text("\(mainOO.level)")
                         .font(.title)
                         .foregroundColor(Color.white)
                         .fontWeight(.black)
                     
                     // MARK: DELETE
                     Button("dlt all") {
-                        dataController.deleteAll()
-                        vm.resetUserInfo()
+                        mainOO.resetData()
+                        mainOO.resetUserInfo()
                         loadGame()
                     }
                     .foregroundColor(.white)
@@ -136,7 +129,7 @@ struct ContentView: View {
                 loadGame()
             }
             .sheet(isPresented: $showEndLevelSheet) {
-                isStretched = vm.questions.count > 0
+                isStretched = mainOO.questions.count > 0
             } content: {
                 Text("LEVEL COMPLETE!")
             }
@@ -144,28 +137,23 @@ struct ContentView: View {
     }
     
     private func loadGame() {
-        vm.setupData(dataController)
-        vm.createMockQuestions()
-        vm.fetchQuestions()
-        vm.getNextQuestion()
-        isStretched = vm.questions.count > 0
+        mainOO.createMockQuestions()
+        mainOO.fetchQuestions()
+        mainOO.getNextQuestion()
+        isStretched = mainOO.questions.count > 0
     }
     
     private func reloadGame() {
-        isStretched = vm.questions.count > 0
+        isStretched = mainOO.questions.count > 0
         visibility = 0
         logoGuess = ""
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            showEndLevelSheet = vm.checkBadgeProgress()
-            vm.getNextQuestion()
+            showEndLevelSheet = mainOO.checkMedalProgress()
+            mainOO.getNextQuestion()
             visibility = 1
 //            focusedField = .field
         }
     }
-}
-
-enum Field: Hashable {
-    case field
 }
 
