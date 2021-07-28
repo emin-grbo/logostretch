@@ -82,6 +82,7 @@ struct MainView: View {
                     if isStretched {
                         
                         // MARK: Textfield entry
+#warning("POI - Not sure how to pass the ObservableObject here in the best way...ie if this is ok?") //👇
                         TextFieldGuesser(logoGuess: $logoGuess, isStretched: $isStretched, mainOO: mainOO)
                         
                     } else {
