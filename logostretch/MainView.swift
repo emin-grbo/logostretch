@@ -8,9 +8,8 @@ class Stretch: ObservableObject {
 //@available(iOS 15.0, *)
 struct MainView: View {
     
-    @AppStorage(StorageKeys.level.rawValue) var level = 1
-    
     @StateObject var mainOO = MainOO()
+    @AppStorage(StorageKeys.level.rawValue) var level = 1
 
     @State var didCompleteReward = false
     @State var isShowingAd = false

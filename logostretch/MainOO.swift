@@ -10,10 +10,9 @@ class MainOO: ObservableObject {
     
     var currentQuestion: Logo?
     var currentAnswers: [String] = []
+    let maxLevel = 3
     
     private var mainDO = MainDO()
-    
-    let maxLevel = 3
     
     func fetchQuestions() {
         questions = mainDO.fetchQuestionsForLevel(level)

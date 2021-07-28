@@ -3,10 +3,10 @@ import SwiftUI
 
 class MainDO {
     
+    @AppStorage(StorageKeys.dataVersion.rawValue) var dataVersion = 0
+    
     let container: NSPersistentCloudKitContainer
     let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
-    
-    @AppStorage(StorageKeys.dataVersion.rawValue) var dataVersion = 0
     
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "logostretch")
