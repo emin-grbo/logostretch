@@ -3,12 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7303066EADB4740191DA4A9C /* AppLovinQualityService.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDCCE1C7A666187A4B334A3 /* AppLovinQualityService.xcframework */; };
-		80A4F90A916F50CCC6852A1A /* AppLovinQualityService.xcframework in AppLovinQualityService Embed Framework */ = {isa = PBXBuildFile; fileRef = 3FDCCE1C7A666187A4B334A3 /* AppLovinQualityService.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D70F81312673DAA300EAB39A /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70F81302673DAA300EAB39A /* KeyboardAdaptive.swift */; };
 		D74821CA2663E8C0008710DC /* logostretchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74821C92663E8C0008710DC /* logostretchApp.swift */; };
 		D74821CC2663E8C0008710DC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74821CB2663E8C0008710DC /* MainView.swift */; };
@@ -28,9 +26,6 @@
 		D784CF16269DCCA600621D18 /* StorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D784CF15269DCCA600621D18 /* StorageKeys.swift */; };
 		D784CF18269E104200621D18 /* Medal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D784CF17269E104200621D18 /* Medal.swift */; };
 		D784CF1A269E396F00621D18 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D784CF19269E396F00621D18 /* testView.swift */; };
-		D7D0341A268A40830042CD42 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D03419268A40830042CD42 /* AdView.swift */; };
-		D7D0341C268A4F320042CD42 /* AppLovinSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D0341B268A4F320042CD42 /* AppLovinSDK.xcframework */; };
-		D7D0341E268A4F580042CD42 /* AppLovinSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D7D0341D268A4F580042CD42 /* AppLovinSDKResources.bundle */; };
 		D7D03420268A4FA20042CD42 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D0341F268A4FA20042CD42 /* AdSupport.framework */; };
 		D7D03422268A4FAF0042CD42 /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D03421268A4FAF0042CD42 /* AppTrackingTransparency.framework */; };
 		D7D03424268A4FB50042CD42 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D03423268A4FB50042CD42 /* AudioToolbox.framework */; };
@@ -47,27 +42,11 @@
 		D7D0343A268A4FF60042CD42 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D03439268A4FF60042CD42 /* SystemConfiguration.framework */; };
 		D7D0343C268A4FFA0042CD42 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D0343B268A4FFA0042CD42 /* UIKit.framework */; };
 		D7D0343E268A4FFE0042CD42 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D0343D268A4FFE0042CD42 /* WebKit.framework */; };
-		D7D03442268A51820042CD42 /* AppLovinQualityServiceSetup-ios.rb in Resources */ = {isa = PBXBuildFile; fileRef = D7D03441268A51820042CD42 /* AppLovinQualityServiceSetup-ios.rb */; };
 		D7EF59A0266CC29400288BA4 /* xRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF599F266CC29400288BA4 /* xRoundedButton.swift */; };
 		D7EF59A2266CDDB900288BA4 /* Fonts+ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF59A1266CDDB900288BA4 /* Fonts+ex.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		11871EE83B6C9FAF306D2A57 /* AppLovinQualityService Embed Framework */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				80A4F90A916F50CCC6852A1A /* AppLovinQualityService.xcframework in AppLovinQualityService Embed Framework */,
-			);
-			name = "AppLovinQualityService Embed Framework";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		3FDCCE1C7A666187A4B334A3 /* AppLovinQualityService.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = AppLovinQualityService.xcframework; path = AppLovinQualityService/AppLovinQualityService.xcframework; sourceTree = "<group>"; };
 		D70F81302673DAA300EAB39A /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
 		D74821C62663E8C0008710DC /* logostretch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = logostretch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74821C92663E8C0008710DC /* logostretchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logostretchApp.swift; sourceTree = "<group>"; };
@@ -89,9 +68,6 @@
 		D784CF15269DCCA600621D18 /* StorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageKeys.swift; sourceTree = "<group>"; };
 		D784CF17269E104200621D18 /* Medal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medal.swift; sourceTree = "<group>"; };
 		D784CF19269E396F00621D18 /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
-		D7D03419268A40830042CD42 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
-		D7D0341B268A4F320042CD42 /* AppLovinSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AppLovinSDK.xcframework; sourceTree = "<group>"; };
-		D7D0341D268A4F580042CD42 /* AppLovinSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AppLovinSDKResources.bundle; sourceTree = "<group>"; };
 		D7D0341F268A4FA20042CD42 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		D7D03421268A4FAF0042CD42 /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
 		D7D03423268A4FB50042CD42 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -108,7 +84,6 @@
 		D7D03439268A4FF60042CD42 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D7D0343B268A4FFA0042CD42 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D7D0343D268A4FFE0042CD42 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		D7D03441268A51820042CD42 /* AppLovinQualityServiceSetup-ios.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = "AppLovinQualityServiceSetup-ios.rb"; sourceTree = "<group>"; };
 		D7EF599F266CC29400288BA4 /* xRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xRoundedButton.swift; sourceTree = "<group>"; };
 		D7EF59A1266CDDB900288BA4 /* Fonts+ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+ex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,7 +93,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7303066EADB4740191DA4A9C /* AppLovinQualityService.xcframework in Frameworks */,
 				D7D0343E268A4FFE0042CD42 /* WebKit.framework in Frameworks */,
 				D7D0343C268A4FFA0042CD42 /* UIKit.framework in Frameworks */,
 				D7D0343A268A4FF60042CD42 /* SystemConfiguration.framework in Frameworks */,
@@ -135,21 +109,12 @@
 				D7D03424268A4FB50042CD42 /* AudioToolbox.framework in Frameworks */,
 				D7D03422268A4FAF0042CD42 /* AppTrackingTransparency.framework in Frameworks */,
 				D7D03420268A4FA20042CD42 /* AdSupport.framework in Frameworks */,
-				D7D0341C268A4F320042CD42 /* AppLovinSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		82CA8AC4977C842AC7EA9B38 /* AppLovinQualityService */ = {
-			isa = PBXGroup;
-			children = (
-				3FDCCE1C7A666187A4B334A3 /* AppLovinQualityService.xcframework */,
-			);
-			name = AppLovinQualityService;
-			sourceTree = "<group>";
-		};
 		D70F810B2673470300EAB39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,7 +134,6 @@
 				D7D03423268A4FB50042CD42 /* AudioToolbox.framework */,
 				D7D03421268A4FAF0042CD42 /* AppTrackingTransparency.framework */,
 				D7D0341F268A4FA20042CD42 /* AdSupport.framework */,
-				D7D0341B268A4F320042CD42 /* AppLovinSDK.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -177,12 +141,9 @@
 		D74821BD2663E8C0008710DC = {
 			isa = PBXGroup;
 			children = (
-				D7D03441268A51820042CD42 /* AppLovinQualityServiceSetup-ios.rb */,
-				D7D0341D268A4F580042CD42 /* AppLovinSDKResources.bundle */,
 				D74821C82663E8C0008710DC /* logostretch */,
 				D74821C72663E8C0008710DC /* Products */,
 				D70F810B2673470300EAB39A /* Frameworks */,
-				82CA8AC4977C842AC7EA9B38 /* AppLovinQualityService */,
 			);
 			sourceTree = "<group>";
 		};
@@ -246,7 +207,6 @@
 		D77D716526924C17008BA8AD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D7D03419268A40830042CD42 /* AdView.swift */,
 				D77D716326924BCA008BA8AD /* ProgressView.swift */,
 				D77D716626925357008BA8AD /* LogoView.swift */,
 				D77D716826925871008BA8AD /* TextFieldGuesser.swift */,
@@ -263,12 +223,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D74821D52663E8C1008710DC /* Build configuration list for PBXNativeTarget "logostretch" */;
 			buildPhases = (
-				59DD6714CEFEA2C1C47B1D7E /* AppLovinQualityService Updater */,
 				D74821C22663E8C0008710DC /* Sources */,
 				D74821C32663E8C0008710DC /* Frameworks */,
 				D74821C42663E8C0008710DC /* Resources */,
-				11871EE83B6C9FAF306D2A57 /* AppLovinQualityService Embed Framework */,
-				C7531EF829034716C1B8362D /* AppLovinQualityService */,
 			);
 			buildRules = (
 			);
@@ -320,51 +277,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7D03442268A51820042CD42 /* AppLovinQualityServiceSetup-ios.rb in Resources */,
 				D74821D12663E8C1008710DC /* Preview Assets.xcassets in Resources */,
 				D74821CE2663E8C1008710DC /* Assets.xcassets in Resources */,
-				D7D0341E268A4F580042CD42 /* AppLovinSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		59DD6714CEFEA2C1C47B1D7E /* AppLovinQualityService Updater */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "AppLovinQualityService Updater";
-			outputPaths = (
-				AppLovinQualityService/AppLovinQualityServicePlugin.app,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "ruby \"AppLovinQualityServiceSetup-ios.rb\" update";
-		};
-		C7531EF829034716C1B8362D /* AppLovinQualityService */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				AppLovinQualityService/AppLovinQualityServicePlugin.app,
-				"$(TARGET_BUILD_DIR)/$(INFOPLIST_PATH)",
-				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
-			);
-			name = AppLovinQualityService;
-			outputPaths = (
-				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_FOLDER_PATH)/.AppLovinQualityService/AppLovinQualityService.json",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "AppLovinQualityService/AppLovinQualityServicePlugin.app/Contents/MacOS/AppLovinQualityServicePlugin \"AppLovinQualityServiceSetup-ios.rb\"";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D74821C22663E8C0008710DC /* Sources */ = {
@@ -375,7 +293,6 @@
 				D774529B2664B6B9002FA097 /* xRoundedRect.swift in Sources */,
 				D784CF18269E104200621D18 /* Medal.swift in Sources */,
 				D74821CC2663E8C0008710DC /* MainView.swift in Sources */,
-				D7D0341A268A40830042CD42 /* AdView.swift in Sources */,
 				D77B932E26950A42001D2945 /* LogoData.swift in Sources */,
 				D77D716926925871008BA8AD /* TextFieldGuesser.swift in Sources */,
 				D75E801F2699E93A007DA045 /* MedalsView.swift in Sources */,

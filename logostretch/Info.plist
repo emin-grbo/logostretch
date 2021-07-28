@@ -4,8 +4,6 @@
 <dict>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>AppLovinSdkKey</key>
-	<string>uJTStFtnBSoUlTFE0o1HKIn0IIgOcM0UrF4nlrTS9DL-4EIZT8hxSS6TL3O--wlEPclaqzlQG3LJDMRzWc_FVV</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

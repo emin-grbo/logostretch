@@ -28,13 +28,7 @@ struct MainView: View {
     
     var body: some View {
         if isShowingAd {
-            AdView(didComplete: $didCompleteReward)
-                .onChange(of: didCompleteReward) { newValue in
-                    if didCompleteReward {
-                        isShowingAd = false
-                        mainOO.getNextQuestion()
-                    }
-                }
+            EmptyView()
         } else {
             ZStack {
                 Color.xpurple
@@ -105,13 +99,8 @@ struct MainView: View {
                         .opacity(isStretched ? 0 : 1)
                     }
                     
-                    Text("\(mainOO.level)")
-                        .font(.title)
-                        .foregroundColor(Color.white)
-                        .fontWeight(.black)
-                    
                     // MARK: DELETE
-                    Button("dlt all") {
+                    Button("RESTART") {
                         mainOO.resetData()
                         mainOO.resetUserInfo()
                         loadGame()
